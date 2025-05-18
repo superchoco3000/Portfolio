@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue à mon portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider round"></div>
+        </label>
+        </div>
+    </header>
+
+    <section id="accueil">
+        <div class="a-propos-initial">
+            <h2> Lucas Casanove, Développeur Web full-stack </h2>
+            <div class="a-propos-contenu">
+                <p> Actuellement gérant d'un parc informatique au sein de Decathlon, j'ai développé une solide expérience en gestion de projet et support technique, que je transpose avec enthousiasme dans le développement web. Passionné par l'apprentissage continu, je suis désireux de mettre à profit mes compétences techniques (HTML, CSS, JavaScript, MySQL, PHP, Java, Python, GitHub) au sein d'une équipe dynamique pour contribuer activement à des projets stimulants. Je me tiens informé des dernières avancées, notamment en ingénierie de prompt et en gestion de code avec l'IA.</p>
+            </div>
+        </div>
+        <div class="a-propos-hoover">
+            <img src="images/moi.jpg" alt="Votre Photo" class="photo-profil">
+            <div class="description-personnelle">
+                <p>D'une passion pour les lettres à une fascination pour le code, mon parcours a toujours été guidé par la création. Chaque défi en développement web est une opportunité d'apprendre et de donner le meilleur de moi-même. Suivre l'évolution des outils et les compétitions de développement m'anime autant qu'un grand match. Mon objectif : transformer cette passion en une carrière enrichissante.</p>
+            </div>
+        </div>
+        <h2>Technologies</h2>
+        <div class="technologies-container">
+            <img src="images/html.png" alt="HTML" height="50">
+            <img src="images/css.png" alt="CSS" height="50">
+            <img src="images/javascript.png" alt="JavaScript" height="50">
+            <img src="images/mysql.png" alt="MySQL" height="50">
+            <img src="images/php.png" alt="PHP" height="50">
+            <img src="images/java.png" alt="Java" height="50">
+            <img src="images/python.png" alt="Python" height="50">
+            <img src="images/github.png" alt="GitHub" height="50">
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2>Projets</h2>
+        <div class="projets-container">
+            <div class="projet">
+                <a href="https://github.com/superchoco3000/Mini-calcul-web" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="projet-image-container">
+                        <img src="images/calculator.gif" alt="GIF Projet 1">
+                    </div>
+                    <h3>Mini-Calculatrice Web Absurde (HTML/CSS/JS)</h3>
+                </a>
+            </div>
+            <div class="projet">
+                <a href="https://github.com/superchoco3000/database" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="projet-image-container">
+                        <img src="images/jordan.gif" alt="Photo Projet 2">
+                    </div>
+                    <h3>Base de Données Personnelle de Chaussures Air Jordan (MySQL/PHP)</h3>
+                </a>
+            </div>
+            <div class="projet">
+                <a href="https://github.com/superchoco3000/Analyseur-de-Texte-Python" target="_blank" style="text-decoration: none; color: inherit;">
+                    <div class="projet-image-container">
+                        <img src="images/pyhon.gif" alt="GIF Projet 3">
+                    </div>
+                    <h3>Analyseur de Texte Simple (Python)</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <p>N'hésitez pas à me contacter via les liens ci-dessous, par email ou par téléphone :</p>
+        <p>
+            <a href="https://www.linkedin.com/in/lucas-casanove-2790692a6/" target="_blank" style="margin-right: 20px;">
+                <img src="images/linkedin.png" alt="LinkedIn" height="30">
+            </a>
+            <a href="https://github.com/superchoco3000" target="_blank">
+                <img src="images/github.png" alt="GitHub" height="30">
+            </a>
+        </p>
+        <p>
+            <img src="images/mail.png" alt="Email" height="20" style="vertical-align: middle; margin-right: 5px;">
+            <a href="mailto:lucascasanove@yahoo.fr" style="color:#bbb; text-decoration:none; vertical-align: middle;">lucascasanove@yahoo.fr</a><br><br>
+            <img src="images/media.png" alt="Téléphone" height="20" style="vertical-align: middle; margin-right: 5px;">
+            <span style="color:#bbb; vertical-align: middle;">07 68 65 78 18</span><br>
+        </p>
+        <div class="contact-form">
+            <h3>Formulaire de contact</h3>
+            <form class="contact-form" id="contactForm" action="procesar_formulario.php" method="POST">
+                <div>
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mon Portfolio</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

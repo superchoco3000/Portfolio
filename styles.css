@@ -1,0 +1,543 @@
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
+header {
+    background-color: #222;
+    padding: 10px 20px; /* Réduction du padding */
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex; /* Pour aligner les éléments */
+    justify-content: space-between; /* Espacement entre la nav et le bouton */
+    align-items: center; /* Alignement vertical */
+}
+
+#theme-toggle {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-left: auto; /* Pousse le bouton vers la droite dans un flex container */
+    margin-top: 0; /* S'assure qu'il est aligné verticalement */
+}
+
+#theme-toggle:hover {
+    background-color: #78b8e0b2;
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pousse le wrapper vers la droite */
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #057f2600;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgba(61, 207, 230, 0.833); /* Couleur actuelle (gris clair) */
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #ccc ; /* Couleur quand coché (thème clair) */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+header nav {
+    float: left; /* Pour que la navigation ne soit pas affectée par le float du bouton */
+}
+
+header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body.theme-light {
+    background-color: #f4f4f4; /* Couleur de fond par défaut */
+    color: #000000; /* Gardons le noir par défaut pour le body */
+    background-image: url('images/playground2.jpg'); /* Chemin vers votre image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.theme-light header {
+    background-color: #eee;
+    color: #000000; /* Texte plus foncé */
+}
+
+body.theme-light header h1 {
+    color: #000000; /* Texte plus foncé */
+}
+
+body.theme-light nav a {
+    color: #000000; /* Texte plus foncé */
+}
+
+body.theme-light nav a:hover {
+    color: #000000; /* Texte plus foncé au survol */
+}
+
+body.theme-light section h2 {
+    color: #222; /* Titres de section plus foncés */
+}
+
+body.theme-light .projet {
+    background-color: #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333; /* Texte des projets plus foncé */
+}
+
+body.theme-light .contact-form label {
+    color: #444; /* Labels du formulaire plus foncés */
+}
+
+body.theme-light .contact-form input[type="text"],
+body.theme-light .contact-form input[type="email"],
+body.theme-light .contact-form textarea {
+    border: 1px solid rgba(170, 170, 170, 0.5);
+    background-color: rgba(238, 238, 238, 0.3);
+    color: #000000; /* Texte des inputs plus foncé */
+}
+body.theme-dark {
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+    background-image: url('images/playground3.jpg'); /* Ré-ajout de l'image de fond */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.theme-dark header {
+    background-color: #222;
+    color: #eee;
+}
+
+body.theme-dark header h1 {
+    color: #eee;
+}
+
+body.theme-dark nav a {
+    color: #bbb;
+}
+
+body.theme-dark nav a:hover {
+    color: #eee;
+}
+
+body.theme-dark section h2 {
+    color: #eee;
+}
+
+body.theme-dark .projet {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #eee;
+}
+
+body.theme-dark .contact-form {
+    background-color: rgba(51, 51, 51, 0.7);
+}
+
+body.theme-dark .contact-form label {
+    color: #bbb;
+}
+
+body.theme-dark .contact-form input[type="text"],
+body.theme-dark .contact-form input[type="email"],
+body.theme-dark .contact-form textarea {
+    border: 1px solid rgba(85, 85, 85, 0.5);
+    background-color: rgba(68, 68, 68, 0.3);
+    color: #eee;
+}
+
+body.theme-light {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+body.theme-light header {
+    background-color: #eee;
+    color: #333;
+}
+
+body.theme-light header h1 {
+    color: #333;
+}
+
+body.theme-light nav a {
+    color: #555;
+}
+
+body.theme-light nav a:hover {
+    color: #222;
+}
+
+body.theme-light section h2 {
+    color: #333;
+}
+
+body.theme-light .projet {
+    background-color: #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+body.theme-light .contact-form {
+    background-color: rgba(221, 221, 221, 0.7);
+}
+
+body.theme-light .contact-form label {
+    color: #555;
+}
+
+body.theme-light .contact-form input[type="text"],
+body.theme-light .contact-form input[type="email"],
+body.theme-light .contact-form textarea {
+    border: 1px solid rgba(170, 170, 170, 0.5);
+    background-color: rgba(238, 238, 238, 0.3);
+    color: #333;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+#accueil .a-propos-contenu p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#accueil {
+    position: relative; /* Important pour positionner les éléments enfants absolument */
+    overflow: hidden; /* Empêche le contenu "hoover" d'être visible initialement */
+    display: flex; /* Pour centrer le contenu initial verticalement au besoin */
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease; /* Pour le zoom de la section */
+}
+
+.a-propos-initial {
+    text-align: center;
+    padding: 80px 20px; /* Conserve le padding initial */
+    transition: filter 0.3s ease; /* Ajout de la transition ici */
+}
+
+.a-propos-hoover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent pour l'effet */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Transition en douceur pour l'opacité */
+    z-index: 10; /* Pour être au-dessus du contenu initial */
+}
+
+#accueil:hover {
+    transform: scale(1.05);
+}
+
+#accueil:hover .a-propos-hoover {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s; /* Apparition immédiate */
+}
+
+#accueil:hover .a-propos-initial {
+    filter: brightness(0.7); /* Assombrit légèrement le fond au survol */
+}
+
+body.theme-dark #accueil:hover .a-propos-initial {
+    filter: brightness(0.5); /* Assombrit encore plus en thème sombre */
+}
+
+.a-propos-hoover .photo-profil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+.a-propos-hoover .description-personnelle {
+    color: white;
+    text-align: left;
+    max-width: 400px;
+}
+
+.a-propos-hoover .description-personnelle p {
+    line-height: 1.6;
+}
+
+.technologies-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.technologies-container img {
+    height: 50px;
+}
+
+.projets-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.projet {
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease 0.15s, filter 0.3s ease 0.15s;
+}
+
+.projets-container:hover .projet {
+    filter: blur(5px);
+}
+
+.projets-container:hover .projet:hover {
+    transform: scale(1.1);
+    filter: blur(0);
+}
+
+.projet h3 {
+    margin-top: 0;
+}
+
+.projet-image-container {
+            width: 100%; /* L'image prendra toute la largeur du projet */
+            height: 200px; /* Hauteur fixe pour uniformiser */
+            overflow: hidden; /* Empêche le débordement si l'image a des proportions différentes */
+            margin-bottom: 10px; /* Espace entre l'image et le titre */
+            border-radius: 8px 8px 0 0; /* Bords arrondis en haut */
+        }
+
+        .projet-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Rempli le conteneur en conservant les proportions (peut rogner) */
+            display: block; /* Empêche les marges supplémentaires autour de l'image */
+        }
+
+        .projet {
+            /* Conservez les autres styles existants pour .projet */
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s ease 0.15s, filter 0.3s ease 0.15s;
+            display: flex; /* Pour organiser l'image et le texte verticalement */
+            flex-direction: column;
+        }
+
+        .projet h3 {
+            margin-top: 10px; /* Ajuste la marge du titre */
+        }
+        
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.contact-form {
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.contact-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form div {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-height: 150px;
+}
+
+.contact-form button[type="submit"] {
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+@media screen and (max-width: 768px) {
+    header nav ul {
+        text-align: center;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .projets-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projet {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .technologies-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .technologies-container img {
+        margin: 10px 0;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+}

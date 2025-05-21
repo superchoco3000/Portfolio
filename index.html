@@ -4,12 +4,17 @@
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue à mon portfolio</title>
+    <title>Lucas Casanove - Développeur Web Full-Stack </title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="theme-dark">
     <header>
-        <nav>
+        <button class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+        <nav id="mainNav">
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#projets">Projets</a></li>
@@ -25,8 +30,8 @@
     </header>
 
     <section id="accueil">
+        <h2> Lucas Casanove, Développeur Web full-stack </h2>
         <div class="a-propos-initial">
-            <h2> Lucas Casanove, Développeur Web full-stack </h2>
             <div class="a-propos-contenu">
                 <p> Actuellement gérant d'un parc informatique au sein de Decathlon, j'ai développé une solide expérience en gestion de projet et support technique, que je transpose avec enthousiasme dans le développement web. Passionné par l'apprentissage continu, je suis désireux de mettre à profit mes compétences techniques (HTML, CSS, JavaScript, MySQL, PHP, Java, Python, GitHub) au sein d'une équipe dynamique pour contribuer activement à des projets stimulants. Je me tiens informé des dernières avancées, notamment en ingénierie de prompt et en gestion de code avec l'IA.</p>
             </div>
@@ -38,15 +43,25 @@
             </div>
         </div>
         <h2>Technologies</h2>
-        <div class="technologies-container">
-            <img src="images/html.png" alt="HTML" height="50">
-            <img src="images/css.png" alt="CSS" height="50">
-            <img src="images/javascript.png" alt="JavaScript" height="50">
-            <img src="images/mysql.png" alt="MySQL" height="50">
-            <img src="images/php.png" alt="PHP" height="50">
-            <img src="images/java.png" alt="Java" height="50">
-            <img src="images/python.png" alt="Python" height="50">
-            <img src="images/github.png" alt="GitHub" height="50">
+        <div class="technologies-carousel-container">
+            <div class="technologies-carousel">
+                <img src="images/html.png" alt="HTML" height="50">
+                <img src="images/css.png" alt="CSS" height="50">
+                <img src="images/javascript.png" alt="JavaScript" height="50">
+                <img src="images/mysql.png" alt="MySQL" height="50">
+                <img src="images/php.png" alt="PHP" height="50">
+                <img src="images/java.png" alt="Java" height="50">
+                <img src="images/python.png" alt="Python" height="50">
+                <img src="images/github.png" alt="GitHub" height="50">
+                <img src="images/html.png" alt="HTML" height="50">
+                <img src="images/css.png" alt="CSS" height="50">
+                <img src="images/javascript.png" alt="JavaScript" height="50">
+                <img src="images/mysql.png" alt="MySQL" height="50">
+                <img src="images/php.png" alt="PHP" height="50">
+                <img src="images/java.png" alt="Java" height="50">
+                <img src="images/python.png" alt="Python" height="50">
+                <img src="images/github.png" alt="GitHub" height="50">
+            </div>
         </div>
     </section>
 
@@ -95,7 +110,7 @@
             <img src="images/mail.png" alt="Email" height="20" style="vertical-align: middle; margin-right: 5px;">
             <a href="mailto:lucascasanove@yahoo.fr" style="color:#bbb; text-decoration:none; vertical-align: middle;">lucascasanove@yahoo.fr</a><br><br>
             <img src="images/media.png" alt="Téléphone" height="20" style="vertical-align: middle; margin-right: 5px;">
-            <span style="color:#bbb; vertical-align: middle;">07 68 65 78 18</span><br>
+            <a href="tel:0768657818" style="color:#bbb; vertical-align: middle; text-decoration:none;">07 68 65 78 18</a><br>
         </p>
         <div class="contact-form">
             <h3>Formulaire de contact</h3>

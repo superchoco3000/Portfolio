@@ -1,39 +1,61 @@
-* {
-    font-family: 'Montserrat', sans-serif !important;
+/* styles.css */
+
+/* --- Styles Généraux (hors thèmes) --- */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce pour le changement de thème */
 }
+
 header {
-    background-color: #222;
-    padding: 10px 20px; /* Réduction du padding */
-    text-align: center;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 100;
-    display: flex; /* Pour aligner les éléments */
-    justify-content: space-between; /* Espacement entre la nav et le bouton */
-    align-items: center; /* Alignement vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222; /* Couleur par défaut du header (sombre) */
+    color: #eee; /* Couleur de texte par défaut du header (clair sur sombre) */
 }
 
-#theme-toggle {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    margin-left: auto; /* Pousse le bouton vers la droite dans un flex container */
-    margin-top: 0; /* S'assure qu'il est aligné verticalement */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 }
 
-#theme-toggle:hover {
-    background-color: #78b8e0b2;
+header nav ul li {
+    margin: 0 15px;
 }
 
+header nav a {
+    text-decoration: none;
+    color: #bbb; /* Couleur par défaut des liens de nav (clair sur sombre) */
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #eee;
+}
+
+section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #eee; /* Couleur par défaut des titres de section (clair sur sombre) */
+}
+
+/* Styles du switch de thème (slider) - Général */
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Pousse le wrapper vers la droite */
+    margin-left: auto;
 }
 
 .theme-switch {
@@ -41,6 +63,7 @@ header {
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-left: 15px; /* Espace entre la nav et le switch */
 }
 
 .theme-switch input {
@@ -56,8 +79,9 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #057f2600;
+    background-color: #ccc; /* Fond gris par défaut */
     transition: .4s;
+    border-radius: 34px;
 }
 
 .slider:before {
@@ -67,92 +91,28 @@ header {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: rgba(61, 207, 230, 0.833); /* Couleur actuelle (gris clair) */
+    background-color: white; /* Boule blanche par défaut */
     transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #ccc ; /* Couleur quand coché (thème clair) */
+    border-radius: 50%;
 }
 
 input:focus + .slider {
     box-shadow: 0 0 1px #ccc;
 }
 
+input:checked + .slider {
+    background-color: #2196F3; /* Couleur quand coché */
+}
+
 input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-header nav {
-    float: left; /* Pour que la navigation ne soit pas affectée par le float du bouton */
-}
-
-header::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-body.theme-light {
-    background-color: #f4f4f4; /* Couleur de fond par défaut */
-    color: #000000; /* Gardons le noir par défaut pour le body */
-    background-image: url('images/playground2.jpg'); /* Chemin vers votre image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-body.theme-light header {
-    background-color: #eee;
-    color: #000000; /* Texte plus foncé */
-}
-
-body.theme-light header h1 {
-    color: #000000; /* Texte plus foncé */
-}
-
-body.theme-light nav a {
-    color: #000000; /* Texte plus foncé */
-}
-
-body.theme-light nav a:hover {
-    color: #000000; /* Texte plus foncé au survol */
-}
-
-body.theme-light section h2 {
-    color: #222; /* Titres de section plus foncés */
-}
-
-body.theme-light .projet {
-    background-color: #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333; /* Texte des projets plus foncé */
-}
-
-body.theme-light .contact-form label {
-    color: #444; /* Labels du formulaire plus foncés */
-}
-
-body.theme-light .contact-form input[type="text"],
-body.theme-light .contact-form input[type="email"],
-body.theme-light .contact-form textarea {
-    border: 1px solid rgba(170, 170, 170, 0.5);
-    background-color: rgba(238, 238, 238, 0.3);
-    color: #000000; /* Texte des inputs plus foncé */
-}
+/* --- Thème Sombre (Dark - par défaut ou si la classe .theme-dark est présente) --- */
 body.theme-dark {
     background-color: #1a1a1a;
     color: #f4f4f4;
-    background-image: url('images/playground3.jpg'); /* Ré-ajout de l'image de fond */
+    background-image: url('images/playground3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -163,15 +123,11 @@ body.theme-dark header {
     color: #eee;
 }
 
-body.theme-dark header h1 {
-    color: #eee;
-}
-
-body.theme-dark nav a {
+body.theme-dark header nav a {
     color: #bbb;
 }
 
-body.theme-dark nav a:hover {
+body.theme-dark header nav a:hover {
     color: #eee;
 }
 
@@ -186,7 +142,8 @@ body.theme-dark .projet {
 }
 
 body.theme-dark .contact-form {
-    background-color: rgba(51, 51, 51, 0.7);
+    background-color: rgba(51, 51, 51, 0.85);
+    border: 1px solid #444;
 }
 
 body.theme-dark .contact-form label {
@@ -196,31 +153,42 @@ body.theme-dark .contact-form label {
 body.theme-dark .contact-form input[type="text"],
 body.theme-dark .contact-form input[type="email"],
 body.theme-dark .contact-form textarea {
-    border: 1px solid rgba(85, 85, 85, 0.5);
-    background-color: rgba(68, 68, 68, 0.3);
+    border: 1px solid #555;
+    background-color: rgba(68, 68, 68, 0.5);
     color: #eee;
 }
+body.theme-dark .contact-form button[type="submit"] {
+    background-color: #007bff;
+}
+body.theme-dark .contact-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
 
+/* Styles du slider pour le thème sombre (checkbox NON cochée - état initial) */
+/* Le style par défaut du slider est déjà adapté pour le sombre */
+
+/* --- Thème Clair (Light - si la classe .theme-light est présente) --- */
 body.theme-light {
     background-color: #f4f4f4;
     color: #333;
+    background-image: url('images/playground2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body.theme-light header {
-    background-color: #eee;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     color: #333;
 }
 
-body.theme-light header h1 {
-    color: #333;
-}
-
-body.theme-light nav a {
+body.theme-light header nav a {
     color: #555;
 }
 
-body.theme-light nav a:hover {
-    color: #222;
+body.theme-light header nav a:hover {
+    color: #007bff;
 }
 
 body.theme-light section h2 {
@@ -228,13 +196,16 @@ body.theme-light section h2 {
 }
 
 body.theme-light .projet {
-    background-color: #ddd;
+    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: #333;
+    border: 1px solid #ddd;
 }
 
 body.theme-light .contact-form {
-    background-color: rgba(221, 221, 221, 0.7);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 body.theme-light .contact-form label {
@@ -244,65 +215,54 @@ body.theme-light .contact-form label {
 body.theme-light .contact-form input[type="text"],
 body.theme-light .contact-form input[type="email"],
 body.theme-light .contact-form textarea {
-    border: 1px solid rgba(170, 170, 170, 0.5);
-    background-color: rgba(238, 238, 238, 0.3);
+    border: 1px solid #ccc;
+    background-color: #fdfdfd;
     color: #333;
 }
+body.theme-light .contact-form button[type="submit"] {
+    background-color: #28a745;
+}
+body.theme-light .contact-form button[type="submit"]:hover {
+    background-color: #1e7e34;
+}
 
-header {
+/* Styles du slider pour le thème clair (checkbox COCHÉE) */
+body.theme-light .slider {
+    background-color: #ccc; /* Fond gris quand clair */
+}
+body.theme-light .slider:before {
+    background-color: #333; /* Boule sombre quand clair (donc coché) */
+}
+body.theme-light input:focus + .slider {
+    box-shadow: 0 0 1px #333;
+}
+
+/* --- Effets & Interactions --- */
+.projet {
+    border-radius: 8px;
     padding: 20px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-header nav a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-section {
-    padding: 80px 20px;
-    text-align: center;
-    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-}
-
-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-}
-
-#accueil .a-propos-contenu p {
-    font-size: 1.1em;
-    max-width: 800px;
-    margin: 20px auto;
+.projet:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 #accueil {
-    position: relative; /* Important pour positionner les éléments enfants absolument */
-    overflow: hidden; /* Empêche le contenu "hoover" d'être visible initialement */
-    display: flex; /* Pour centrer le contenu initial verticalement au besoin */
+    position: relative;
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease; /* Pour le zoom de la section */
+    transition: transform 0.3s ease;
 }
 
 .a-propos-initial {
     text-align: center;
-    padding: 80px 20px; /* Conserve le padding initial */
-    transition: filter 0.3s ease; /* Ajout de la transition ici */
+    padding: 80px 20px;
+    transition: filter 0.3s ease;
 }
 
 .a-propos-hoover {
@@ -311,14 +271,14 @@ section h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent pour l'effet */
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Transition en douceur pour l'opacité */
-    z-index: 10; /* Pour être au-dessus du contenu initial */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    z-index: 10;
 }
 
 #accueil:hover {
@@ -328,15 +288,15 @@ section h2 {
 #accueil:hover .a-propos-hoover {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s ease, visibility 0s linear 0s; /* Apparition immédiate */
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
 }
 
 #accueil:hover .a-propos-initial {
-    filter: brightness(0.7); /* Assombrit légèrement le fond au survol */
+    filter: brightness(0.7);
 }
 
 body.theme-dark #accueil:hover .a-propos-initial {
-    filter: brightness(0.5); /* Assombrit encore plus en thème sombre */
+    filter: brightness(0.5);
 }
 
 .a-propos-hoover .photo-profil {
@@ -358,7 +318,7 @@ body.theme-dark #accueil:hover .a-propos-initial {
 }
 
 .technologies-container {
-    display: flex;
+    display: none; /* Caché par défaut sur grand écran, le carrousel prend le relais sur mobile */
     justify-content: center;
     gap: 20px;
     align-items: center;
@@ -378,55 +338,39 @@ body.theme-dark #accueil:hover .a-propos-initial {
     padding: 40px;
 }
 
+.projet-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.projet-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .projet {
     border-radius: 8px;
     padding: 20px;
     width: 300px;
     transition: transform 0.3s ease 0.15s, filter 0.3s ease 0.15s;
+    display: flex;
+    flex-direction: column;
 }
 
-.projets-container:hover .projet {
-    filter: blur(5px);
-}
-
-.projets-container:hover .projet:hover {
-    transform: scale(1.1);
-    filter: blur(0);
+.projet:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
 .projet h3 {
-    margin-top: 0;
+    margin-top: 10px;
 }
 
-.projet-image-container {
-            width: 100%; /* L'image prendra toute la largeur du projet */
-            height: 200px; /* Hauteur fixe pour uniformiser */
-            overflow: hidden; /* Empêche le débordement si l'image a des proportions différentes */
-            margin-bottom: 10px; /* Espace entre l'image et le titre */
-            border-radius: 8px 8px 0 0; /* Bords arrondis en haut */
-        }
-
-        .projet-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Rempli le conteneur en conservant les proportions (peut rogner) */
-            display: block; /* Empêche les marges supplémentaires autour de l'image */
-        }
-
-        .projet {
-            /* Conservez les autres styles existants pour .projet */
-            border-radius: 8px;
-            padding: 20px;
-            width: 300px;
-            transition: transform 0.3s ease 0.15s, filter 0.3s ease 0.15s;
-            display: flex; /* Pour organiser l'image et le texte verticalement */
-            flex-direction: column;
-        }
-
-        .projet h3 {
-            margin-top: 10px; /* Ajuste la marge du titre */
-        }
-        
 #contact {
     text-align: center;
 }
@@ -493,14 +437,58 @@ body.theme-dark #accueil:hover .a-propos-initial {
     background-color: #4cae4c;
 }
 
+/* --- Media Queries --- */
 @media screen and (max-width: 768px) {
+    header {
+        padding: 10px 15px;
+        flex-direction: row; /* Aligner le hamburger et le reste horizontalement */
+        justify-content: space-between; /* Espacer le hamburger et le switch */
+        align-items: center;
+    }
+
+    header nav {
+        width: auto; /* Ajuster la largeur de la nav */
+        margin-top: 0; /* Supprimer la marge du dessus */
+    }
+
     header nav ul {
-        text-align: center;
+        display: none; /* Cacher la nav par défaut sur mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Ajuster selon la hauteur de votre header */
+        left: 0;
+        width: 100%;
+        background-color: #222; /* Fond sombre pour la nav mobile */
+        z-index: 100;
+        padding: 20px 0;
+        align-items: center;
+    }
+
+    body.theme-light header nav ul {
+        background-color: #fff; /* Fond clair pour la nav mobile */
     }
 
     header nav ul li {
         display: block;
         margin: 10px 0;
+    }
+
+    header nav a {
+        color: #bbb; /* Liens clairs sur fond sombre */
+        display: block;
+        padding: 10px 20px;
+    }
+
+    body.theme-light header nav a {
+        color: #555; /* Liens sombres sur fond clair */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Afficher le hamburger sur mobile */
+    }
+
+    .theme-switch-wrapper {
+        margin-left: 0; /* Réaligner le switch en mobile */
     }
 
     .projets-container {
@@ -514,16 +502,12 @@ body.theme-dark #accueil:hover .a-propos-initial {
     }
 
     .technologies-container {
-        flex-direction: column;
-        align-items: center;
+        display: none; /* Cacher la disposition statique sur mobile */
     }
 
-    .technologies-container img {
-        margin: 10px 0;
-    }
-
-    .contact-form {
-        padding: 20px;
+    /* Ajout pour afficher le menu au clic */
+    #mainNav ul.open {
+        display: flex !important;
     }
 }
 
@@ -541,3 +525,28 @@ body.theme-dark #accueil:hover .a-propos-initial {
         margin-bottom: 30px;
     }
 }
+
+/* --- Styles pour le carrousel de technologies --- */
+.technologies-carousel-container {
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.technologies-carousel {
+    display: flex;
+    animation: scroll 15s linear infinite; /* Ajustez la durée pour la vitesse */
+}
+
+.technologies-carousel img {
+    height: 50px;
+    margin: 0 20px
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(50%);
+    }
+}    

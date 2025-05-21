@@ -575,6 +575,5 @@ body.theme-dark #accueil:hover .a-propos-initial {
 
 @media screen and (min-width: 769px) {
     .technologies-carousel-container {
-        display: inline-block; /* Cacher le carrousel sur grand écran */
     }
 }

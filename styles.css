@@ -552,7 +552,7 @@ body.theme-dark #accueil:hover .a-propos-initial {
 .technologies-carousel-container {
     overflow-x: hidden; /* Permet le défilement horizontal si le contenu dépasse */
     padding: 20px 0;
-    max-width: 48%;
+    max-width: 20%;
     margin: 0 auto;
     -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
 }
@@ -575,6 +575,6 @@ body.theme-dark #accueil:hover .a-propos-initial {
 
 @media screen and (min-width: 769px) {
     .technologies-carousel-container {
-        display: none; /* Cacher le carrousel sur grand écran */
+        display: inline-block; /* Cacher le carrousel sur grand écran */
     }
 }

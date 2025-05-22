@@ -549,31 +549,45 @@ body.theme-dark #accueil:hover .a-propos-initial {
     text-align: center;
 }
 
-.technologies-carousel-container {
-    overflow-x: hidden; /* Permet le défilement horizontal si le contenu dépasse */
-    padding: 20px 0;
-    max-width: 20%;
-    margin: 0 auto;
-    -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+.carousel-viewport {
+    overflow: hidden; /* Important pour cacher les éléments qui dépassent */
+    max-width: 80%; /* Ajustez selon vos préférences */
+    margin: 20px auto; /* Centre le carrousel */
 }
 
-.technologies-carousel {
+.carousel-track {
     display: flex;
-    white-space: nowrap;
-    animation: scroll 10s linear infinite; /* Ajustez la durée selon préférence */
+    white-space: nowrap; /* Empêche les éléments de passer à la ligne */
+    animation: scroll-tech 15s linear infinite; /* Animation de défilement */
 }
 
-.technologies-carousel img {
-    height: 50px;
-    margin-right: 20px; /* Espace entre les images */
+.carousel-track:hover {
+    animation-play-state: paused; /* Met en pause l'animation au survol */
 }
 
-@keyframes scroll {
+.carousel-item {
+    flex: 0 0 auto; /* Ne pas rétrécir, ne pas grandir, taille automatique */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px; /* Un peu d'espace sur les côtés des logos */
+}
+
+.carousel-item img {
+    height: 50px; /* Taille des logos */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Animation de défilement */
+@keyframes scroll-tech {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-70%); } /* Défilement complet vers la gauche */
+    100% { transform: translateX(-100%); } /* Défile complètement vers la gauche */
 }
 
 @media screen and (min-width: 769px) {
-    .technologies-carousel-container {
+    .carousel-viewport {
+        max-width: 60%; /* Ajustez pour les écrans plus grands si nécessaire */
     }
 }

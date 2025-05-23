@@ -648,7 +648,7 @@ body.theme-dark #accueil:hover .a-propos-initial {
 
 @media screen and (min-width: 769px) {
     .carousel-viewport {
-        max-width: 60%; /* Ajustez pour les écrans plus grands si nécessaire */
+        max-width: 50%; /* Ajustez pour les écrans plus grands si nécessaire */
     }
 
     header nav#mainNav {

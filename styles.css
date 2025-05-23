@@ -15,8 +15,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #222; /* Couleur par défaut du header (sombre) */
+    /*background-color: #222; /* Couleur par défaut du header (sombre) */
+    background-color: rgba(34, 34, 34, 0.7); /* Fond légèrement transparent (noir) */
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     color: #eee; /* Couleur de texte par défaut du header (clair sur sombre) */
+}
+
+header nav {
+    background-color: rgba(34, 34, 34, 0.7); /* Fond légèrement transparent (noir en ce cas) */
+    backdrop-filter: blur(10px) saturate(180%); /* Ajuste la quantité de desenfoque y saturación */
+    -webkit-backdrop-filter: blur(10px) saturate(180%); /* Para compatibilidad con Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Añade una sombra para dar profundidad */
+    border-radius: 10px; /* Opcional: añade bordes redondeados */
 }
 
 header nav ul {
@@ -24,7 +36,14 @@ header nav ul {
     padding: 0;
     margin: 0;
     display: flex; /* Affichage en ligne par défaut sur grand écran */
+    /* background-color: rgba(34, 34, 34, 0.7); */ /* Suppression du style glass en double */
+    /* backdrop-filter: blur(10px) saturate(180%); */ /* Suppression du style glass en double */
+    /* -webkit-backdrop-filter: blur(10px) saturate(180%); */ /* Suppression du style glass en double */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */ /* Suppression du style glass en double */
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */ /* Suppression du style glass en double */
+    /* border-radius: 10px; */ /* Suppression du style glass en double */
 }
+
 
 header nav ul li {
     margin: 0 15px;
@@ -32,7 +51,7 @@ header nav ul li {
 
 header nav a {
     text-decoration: none;
-    color: #bbb; /* Couleur par défaut des liens de nav (clair sur sombre) */
+    color: #cacaca; /* Couleur par défaut des liens de nav (clair sur sombre) */
     transition: color 0.3s ease;
 }
 
@@ -120,7 +139,9 @@ body.theme-dark {
 }
 
 body.theme-dark header {
-    background-color: #222;
+    background-color: rgba(34, 34, 34, 0); /* Fond complètement transparent (noir) */
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     color: #eee;
 }
 
@@ -184,13 +205,23 @@ body.theme-light {
 }
 
 body.theme-light header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    color: #333;
+    background-color: rgba(255, 255, 255, 0); /* Fond complètement transparent (blanc) */
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    color: #000000;
+}
+
+body.theme-light header nav {
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo ligeramente transparente (blanco en este caso) */
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borde sutil */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Añade una sombra para dar profundidad */
+    border-radius: 10px; /* Opcional: añade bordes redondeados */
 }
 
 body.theme-light header nav a {
-    color: #555;
+    color: #000000;
 }
 
 body.theme-light header nav a:hover {
@@ -437,7 +468,7 @@ body.theme-dark #accueil:hover .a-propos-initial {
 .contact-form textarea {
     width: 100%;
     padding: 12px;
-    border-radius: 4px;
+    border-radius:4px;
     box-sizing: border-box;
     min-height: 150px;
 }
@@ -473,15 +504,26 @@ body.theme-dark #accueil:hover .a-propos-initial {
         top: 60px; /* Ajuster selon la hauteur de votre header */
         left: 0;
         width: 100%;
-        background-color: #222; /* Fond sombre pour la nav mobile */
+        background-color: rgba(34, 34, 34, 0);
         z-index: 100;
         padding: 20px 0;
         align-items: center;
         flex-direction: column;
+        /* Styles glass pour la nav mobile si souhaité */
+        /* background-color: rgba(34, 34, 34, 0.7); */
+        /* backdrop-filter: blur(10px) saturate(180%); */
+        /* -webkit-backdrop-filter: blur(10px) saturate(180%); */
+        /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+        /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+        /* border-radius: 0; */ /* Pas de bordures rondes sur mobile plein écran */
     }
 
     body.theme-light header nav {
-        background-color: #fff; /* Fond clair pour la nav mobile */
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     }
 
     header nav ul {
@@ -494,12 +536,17 @@ body.theme-dark #accueil:hover .a-propos-initial {
 
     header nav.open {
         display: flex; /* Afficher la nav (le conteneur ul) quand 'open' est ajoutée */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-height: 300px; /* Ajuste cette valeur selon tes besoins */
+        overflow-y: auto;
     }
 
     header nav.open ul {
         display: flex; /* Afficher les éléments de la liste en colonne */
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
     }
 
     header nav ul li {
@@ -514,7 +561,7 @@ body.theme-dark #accueil:hover .a-propos-initial {
     }
 
     body.theme-light header nav a {
-        color: #555; /* Liens sombres sur fond clair */
+        color: #cacaca; /* Liens sombres sur fond clair */
     }
 
     .hamburger-menu {
@@ -528,6 +575,14 @@ body.theme-dark #accueil:hover .a-propos-initial {
         cursor: pointer;
         padding: 0;
         z-index: 101; /* Au-dessus de la nav mobile */
+        margin-right: 20px;
+    }
+
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #eee; /* Couleur des barres */
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .hamburger-menu.open .bar:nth-child(1) {
@@ -540,13 +595,6 @@ body.theme-dark #accueil:hover .a-propos-initial {
 
     .hamburger-menu.open .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .bar {
-        width: 100%;
-        height: 3px;
-        background-color: #eee; /* Couleur des barres (clair sur fond sombre par défaut) */
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     body.theme-light .bar {
@@ -597,8 +645,44 @@ body.theme-dark #accueil:hover .a-propos-initial {
     100% { transform: translateX(-100%); } /* Défile complètement vers la gauche */
 }
 
+
 @media screen and (min-width: 769px) {
     .carousel-viewport {
         max-width: 60%; /* Ajustez pour les écrans plus grands si nécessaire */
+    }
+
+    header nav#mainNav {
+        display: none; /* Cacher la nav par défaut sur grand écran */
+        position: absolute; /* Pour pouvoir la positionner si besoin */
+        top: 60px; /* Ajuste si la hauteur de ton header change */
+        left: 20px; /* Laisse un peu d'espace du bord gauche */
+        /* Styles glass pour la nav sur grand écran */
+        background-color: rgba(34, 34, 34, 0);
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        border-radius: 10px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px; /* Ajoute du padding interne */
+    }
+
+    header nav#mainNav.open {
+        display: flex; /* Afficher en ligne */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav#mainNav ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column; /* Les liens en colonne */
+        align-items: flex-start; /* Alignement à gauche des liens */
+    }
+
+    header nav#mainNav ul li {
+        margin-bottom: 10px;
+        margin-left: 0; /* Espacement entre les liens */
     }
 }

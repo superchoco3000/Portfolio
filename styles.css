@@ -255,6 +255,17 @@ body.theme-light input:focus + .slider {
     flex-direction: column;
 }
 
+.projet p a {
+    text-decoration: none;
+    color: inherit; /* Hérite de la couleur du texte parent */
+    position: relative; /* Pour gérer le z-index si nécessaire */
+    z-index: 1;
+}
+
+.projet p a:hover {
+    color: #007bff; /* Exemple de couleur au survol - adaptez selon votre style */
+}
+
 .projet:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
